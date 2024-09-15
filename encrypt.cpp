@@ -4,10 +4,10 @@
 int encryptChar(char letter) {
 	if(isalpha(letter)) {
 		if(islower(letter)) {
-			return letter-'a' + 1;
+			return letter-'a';
 		}
 		else {
-			return letter-'A' + 1;
+			return letter-'A';
 		}
 		}
 	return -1;
@@ -26,14 +26,16 @@ void encryptString(const char* input, int* output) {
 }
 
 int main() {
-	char input[10];
-	int output[10];
+	char input[100];
+	int output[100];
 	printf("Enter the string you want to encrypt: ");
 	scanf("%s", input);
 	
 	encryptString(input, output);
-	for(int i = 0; i < sizeof(output); i++){
-		printf("\n%d", output[i]);
+	int i = 0;
+	while (output[i] != '\0') {
+		printf("%d\n", output[i]);
+		i++;
 	}
 	
 	return 0;
